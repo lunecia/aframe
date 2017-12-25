@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+	<style>
+		body {background: #000;}
+	</style>
+</head>
+<body>
+	
+	<a-scene>
+
+		<a-camera position="0 5 5">
+			<a-cursor color ="#ff000"></a-cursor>
+		</a-camera>
+
+		
+		<!-- cha -->
+		<a-entity id="test" position="0 0 -10" scale=".05 .05 .05" json-model="src:  model.json" animation-mixer="clip: t"></a-entity>
+		
+		<!-- banner -->
+		<a-box id="banner" color="white" position="0 15 -10" rotation="0 0 0" depth="0.1" height="4" width="10" scale="1 1 1">
+
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+
+			<a-text value="ISOBAR THAILAND" color="orange" position="-3.8 -0.5 1" width="20"></a-text>
+			<a-text value="PARTY 2018" color="orange" position="-1.5 -1.2 1" width="12"></a-text>
+
+		</a-box>
+		
+		<!-- button -->
+		<a-box id="model1" data-action="clip: t; autoplay: true; loop: false;" color="white" position="-10 10 -8" rotation="0 20 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="t" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		<a-box id="model2" data-action="clip: p1; autoplay: true; loop: false;" color="white" position="-6 10 -9" rotation="0 10 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="p1" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		<a-box id="model3" data-action="clip: p2; autoplay: true; loop: false;" color="white" position="-2 10 -10" rotation="0 0 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="p2" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		<a-box id="model4" data-action="clip: p3; autoplay: true; loop: false;" color="white" position="2 10 -10" rotation="0 0 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="p3" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		<a-box id="model5" data-action="clip: p4; autoplay: true; loop: false;" color="white" position="6 10 -9" rotation="0 -10 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="p4" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		<a-box id="model6" data-action="clip: p5; autoplay: true; loop: false;" color="white" position="10 10 -8" rotation="0 -20 0" depth="0.1" height="1.5" width="2.5" scale="1 1 1">
+			<a-animation attribute="scale" begin="mouseenter" dur="300" to="1.5 1.5 1.5"></a-animation>
+			<a-animation attribute="scale" begin="mouseleave" dur="300" to="1 1 1"></a-animation>
+			<a-text value="p5" color="orange" position="-.3 -.2 1" width="10"></a-text>
+		</a-box>
+		
+
+		<!-- asmosp -->
+		<a-plane position="0 0 -10" rotation="-90 0 0" width="20" height="15" color="tomato"></a-plane>
+		<a-sky color="lightblue"></a-sky>
+
+	</a-scene>
+
+	<script type="text/javascript">
+
+
+		var test = document.getElementById('test'),
+			t = document.getElementById('model1'),
+			p1 = document.getElementById('model2'),
+			p2 = document.getElementById('model3'),
+			p3 = document.getElementById('model4'),
+			p4 = document.getElementById('model5'),
+			p5 = document.getElementById('model6');
+
+		t.addEventListener('mouseenter',function(){
+			var action = t.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+		p1.addEventListener('mouseenter',function(){
+			var action = p1.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+		p2.addEventListener('mouseenter',function(){
+			var action = p2.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+		p3.addEventListener('mouseenter',function(){
+			var action = p3.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+		p4.addEventListener('mouseenter',function(){
+			var action = p4.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+		p5.addEventListener('mouseenter',function(){
+			var action = p5.dataset.action;
+			test.setAttribute('animation-mixer',action)
+		});
+
+		
+
+	</script>
+</body>
+</html>
